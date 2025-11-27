@@ -1,0 +1,126 @@
+package pe.edu.upc.foodsave.securities;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.HandlerExceptionResolver;
+
+@Configuration
+@EnableWebSecurity
+@EnableMethodSecurity
+public class WebSecurityConfig {
+    @Autowired
+    private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+
+    @Autowired
+    private UserDetailsService jwtUserDetailsService;
+
+    @Autowired
+    private JwtRequestFilter jwtRequestFilter;
+
+    @Autowired
+    @Qualifier("handlerExceptionResolver")
+    private HandlerExceptionResolver exceptionResolver;
+
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
+    }
+
+    @Bean
+    public static PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(jwtUserDetailsService).passwordEncoder(passwordEncoder());
+    }
+
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
+        //Desde Spring Boot 3.1+
+        httpSecurity
+                .csrf(AbstractHttpConfigurer::disable)
+                .authorizeHttpRequests(req -> req
+                        .requestMatchers("/login").permitAll()
+                        .requestMatchers("/api/v1/authentication/**").permitAll()
+                        .requestMatchers("/v3/api-docs/**").permitAll()
+                        .requestMatchers("/swagger-ui.html").permitAll()
+                        .requestMatchers("/swagger-ui/**").permitAll()
+                        .requestMatchers("/swagger-resources/**").permitAll()
+                        .requestMatchers("/webjars/**").permitAll()
+
+                        .requestMatchers("/usuario/registrar").permitAll()
+
+                        //permisos temporales
+
+                        //NOTIFICACIONES
+                        .requestMatchers("/notificaciones").permitAll()
+                        .requestMatchers("/notificaciones/listas").permitAll()
+                        .requestMatchers("/notificaciones/auto/{inventarioId}").permitAll()
+                        //CALIFICACION RECETA
+                        .requestMatchers("/calificaciones").permitAll()
+                        .requestMatchers("/calificaciones/nuevos").permitAll()
+                        .requestMatchers("/calificaciones/listas").permitAll()
+                        .requestMatchers("/calificaciones/recetas/{idReceta}/rating").permitAll()
+                        //INGREDIENTE RECETA
+                        .requestMatchers("/ingredientes").permitAll()
+                        .requestMatchers("/ingredientes/listas").permitAll()
+                        .requestMatchers("/ingredientes/nuevos").permitAll()
+
+                        //INVENTARIO
+                        .requestMatchers("/inventario").permitAll()
+                        .requestMatchers("/inventario/listas").permitAll()
+                        .requestMatchers("/inventario/nuevos").permitAll()
+                        .requestMatchers("/inventario/{id}").permitAll()
+                        //HISTORIAL ESCANEO
+                        .requestMatchers("/escaneos").permitAll()
+                        .requestMatchers("/escaneos/nuevos").permitAll()
+                        .requestMatchers("/escaneos/listas").permitAll()
+                        //RECETAS
+                        .requestMatchers("/recetas").permitAll()
+                        .requestMatchers("/recetas/listas").permitAll()
+                        .requestMatchers("/recetas/nuevos").permitAll()
+                        .requestMatchers("/recetas/editar").permitAll()
+                        .requestMatchers("/recetas/{id}").permitAll()
+
+                        //USUARIO
+                        .requestMatchers("/usuario").permitAll()
+                        .requestMatchers("/usuario/lista").permitAll()
+                        .requestMatchers("/usuario/actualizar").permitAll()
+                        .requestMatchers("/usuario/borrar/{id}").permitAll()
+                        //ROL
+                        .requestMatchers("/rol/{id}").permitAll()
+                        .requestMatchers("/rol").permitAll()
+                        //PRODUCTO
+                        .requestMatchers("/producto").permitAll()
+                        .requestMatchers("/producto/listas").permitAll()
+                        .requestMatchers("/producto/nuevos").permitAll()
+                        .requestMatchers("/producto/edit").permitAll()
+                        .requestMatchers("/producto/{id}").permitAll()
+
+                        .anyRequest().authenticated()
+                )
+                .httpBasic(Customizer.withDefaults())
+                .formLogin(AbstractHttpConfigurer::disable)
+                .exceptionHandling(e -> e.authenticationEntryPoint(jwtAuthenticationEntryPoint))
+                .sessionManagement(Customizer.withDefaults());
+        httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+        return httpSecurity.build();
+    }
+}

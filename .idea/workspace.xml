@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c09218d6-b10c-4823-9b72-afed219fb239" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/configuration/OpenAPIConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/CalificacionRecetaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/EscaneoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/IngredienteRecetaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/InventarioControllers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/JwtAuthenticationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/NotificacionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/ProductoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/RecetaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/RolController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/UsuarioController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/dtos/CalificacionRecetaDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/dtos/EscaneoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/dtos/IngredienteRecetaDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/dtos/InventarioDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/dtos/JwtRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/dtos/JwtResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/dtos/NotificacionDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/dtos/ProductoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/dtos/RecetaDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/dtos/RolDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/dtos/UsuarioDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/dtos/UsuarioRegistroPublicoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/entities/CalificacionReceta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/entities/Escaneo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/entities/IngredienteReceta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/entities/Inventario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/entities/Notificacion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/entities/Producto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/entities/Receta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/entities/Rol.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/entities/Usuario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/repositories/ICalificacionRecetaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/repositories/IEscaneoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/repositories/IIngredienteRecetaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/repositories/IInventarioRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/repositories/INotificacionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/repositories/IProductoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/repositories/IRecetaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/repositories/IRolRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/repositories/IUsuarioRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/securities/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/securities/JwtRequestFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/securities/JwtTokenUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/securities/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/servicesimplements/CalificacionRecetaServiceImplements.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/servicesimplements/EscaneoServiceImplements.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/servicesimplements/IngredienteRecetaServiceImplements.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/servicesimplements/InventarioServiceImplements.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/servicesimplements/JwtUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/servicesimplements/NotificacionServiceImplements.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/servicesimplements/ProductoServiceImplements.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/servicesimplements/RecetaServiceImplements.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/servicesimplements/RolServiceImplement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/servicesimplements/UsuarioServiceImplements.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/servicesinterfaces/ICalificacionRecetaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/servicesinterfaces/IEscaneoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/servicesinterfaces/IIngredienteRecetaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/servicesinterfaces/IInventarioService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/servicesinterfaces/INotificacionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/servicesinterfaces/IProductoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/servicesinterfaces/IRecetaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/servicesinterfaces/IRolService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/servicesinterfaces/IUsuarioService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/util/CORS.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="362yWjfA83uFcuvoSCdFhPWyQty" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.FoodsaveApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/J'son/TFAAW/FoodSave-backend/FOODSAVE/src/main/java/pe/edu/upc/foodsave",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\J'son\TFAAW\FoodSave-backend\FOODSAVE\src\main\java\pe\edu\upc\foodsave" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="pe.edu.upc.foodsave.controllers" />
+      <recent name="pe.edu.upc.foodsave.dtos" />
+      <recent name="pe.edu.upc.foodsave.servicesimplements" />
+      <recent name="pe.edu.upc.foodsave.servicesinterfaces" />
+      <recent name="pe.edu.upc.foodsave.repositories" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="FoodsaveApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="FOODSAVE" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="pe.edu.upc.foodsave.FoodsaveApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.419" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.419" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c09218d6-b10c-4823-9b72-afed219fb239" name="Changes" comment="" />
+      <created>1764218994929</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1764218994929</updated>
+      <workItem from="1764218996682" duration="7992000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
