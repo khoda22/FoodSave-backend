@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import pe.edu.upc.foodsave.dtos.CalificacionRecetaDTO;
@@ -34,7 +35,7 @@ public class CalificacionRecetaController {
     private ICalificacionRecetaRepository calificacionRepo;
 
     @PostMapping("/nuevos")
-    //@PreAuthorize("hasAnyAuthority('ADMINISTRADOR','PROGRAMADOR','CLIENTE')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','PROGRAMADOR','CLIENTE')")
     public ResponseEntity<?> insertar(@RequestBody CalificacionRecetaDTO dto) {
 
         if (dto.getCalificacion() == null || dto.getCalificacion() < 1 || dto.getCalificacion() > 5) {
@@ -67,7 +68,7 @@ public class CalificacionRecetaController {
 
 
     @GetMapping("/listas")
-    //@PreAuthorize("hasAnyAuthority('ADMINISTRADOR','PROGRAMADOR','CLIENTE')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','PROGRAMADOR','CLIENTE')")
     public List<CalificacionRecetaDTO>listar(){
         return service.list().stream().map(a->{
             ModelMapper m=new ModelMapper();
@@ -78,6 +79,7 @@ public class CalificacionRecetaController {
 
     // (Opcional) endpoint de agregados por receta
     @GetMapping("/recetas/{idReceta}/rating")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','PROGRAMADOR','CLIENTE')")
     public ResponseEntity<?> ratingDeReceta(@PathVariable Integer idReceta) {
         Double promedio = calificacionRepo.promedioPorReceta(idReceta);
         Long cantidad = calificacionRepo.cantidadPorReceta(idReceta);

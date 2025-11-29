@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.foodsave.dtos.IngredienteRecetaDTO;
 import pe.edu.upc.foodsave.entities.IngredienteReceta;
@@ -25,7 +26,7 @@ public class IngredienteRecetaController {
     private IProductoRepository productoRepository;
 
     @PostMapping("/nuevos")
-    //@PreAuthorize("hasAnyAuthority('ADMINISTRADOR','PROGRAMADOR')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','PROGRAMADOR','CLIENTE')")
     public void insertar(@RequestBody IngredienteRecetaDTO dto) {
         IngredienteReceta ir = new IngredienteReceta();
         ir.setCantidadProductos(dto.getCantidadProductos());
@@ -41,7 +42,7 @@ public class IngredienteRecetaController {
     }
 
     @GetMapping("/listas")
-    //@PreAuthorize("hasAnyAuthority('ADMINISTRADOR','PROGRAMADOR')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','PROGRAMADOR','CLIENTE')")
     public List<IngredienteRecetaDTO>listar(){
         return service.list().stream().map(a->{
             ModelMapper m=new ModelMapper();
@@ -50,7 +51,7 @@ public class IngredienteRecetaController {
     }
 
     @DeleteMapping("/{id}")
-    //@PreAuthorize("hasAnyAuthority('ADMINISTRADOR','PROGRAMADOR')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','PROGRAMADOR','CLIENTE')")
     public ResponseEntity<String> eliminar(@PathVariable("id") int id) {
         IngredienteReceta ir = service.listId(id);
         if (ir == null) {

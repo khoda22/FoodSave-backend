@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.foodsave.dtos.InventarioDTO;
 import pe.edu.upc.foodsave.entities.Inventario;
@@ -21,7 +22,7 @@ public class InventarioControllers {
     private IInventarioService service;
 
     @GetMapping("/listas")
-    //@PreAuthorize("hasAnyAuthority('ADMINISTRADOR','PROGRAMADOR')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','PROGRAMADOR','CLIENTE')")
     public List<InventarioDTO> listar(){
         return service.list().stream().map(a->{
             ModelMapper m=new ModelMapper();
@@ -30,7 +31,7 @@ public class InventarioControllers {
     }
 
     @PostMapping("/nuevos")
-    //@PreAuthorize("hasAnyAuthority('ADMINISTRADOR','PROGRAMADOR','CLIENTE')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','PROGRAMADOR','CLIENTE')")
     public ResponseEntity<?> insertar(@RequestBody InventarioDTO dto) {
 
         Inventario inv = new Inventario();
@@ -55,7 +56,7 @@ public class InventarioControllers {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
     @GetMapping("/{id}")
-    //@PreAuthorize("hasAnyAuthority('ADMINISTRADOR','PROGRAMADOR','CLIENTE')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','PROGRAMADOR','CLIENTE')")
     public ResponseEntity<?> listarId(@PathVariable("id") Integer id) {
         Inventario inv = service.listId(id);
         if (inv == null) {
@@ -69,7 +70,7 @@ public class InventarioControllers {
     }
 
     @DeleteMapping("/{id}")
-    //@PreAuthorize("hasAnyAuthority('ADMINISTRADOR','PROGRAMADOR','CLIENTE')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','PROGRAMADOR','CLIENTE')")
     public ResponseEntity<String> eliminar(@PathVariable("id") Integer id) {
         Inventario i = service.listId(id);
         if (i == null) {
@@ -81,7 +82,7 @@ public class InventarioControllers {
     }
 
     @PutMapping("/editar")
-    //@PreAuthorize("hasAnyAuthority('ADMINISTRADOR','PROGRAMADOR','CLIENTE')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','PROGRAMADOR','CLIENTE')")
     public ResponseEntity<String> modificar(@RequestBody InventarioDTO dto) {
 
         Inventario existente = service.listId(dto.getIdInventario());

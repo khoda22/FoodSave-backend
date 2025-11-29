@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.foodsave.dtos.EscaneoDTO;
 import pe.edu.upc.foodsave.entities.Escaneo;
@@ -24,7 +25,7 @@ public class EscaneoController {
     @Autowired private IProductoRepository productoRepository;
 
     @PostMapping("/nuevos")
-    //@PreAuthorize("hasAnyAuthority('ADMINISTRADOR','PROGRAMADOR','CLIENTE')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','PROGRAMADOR','CLIENTE')")
     public ResponseEntity<String> insertar(@RequestBody EscaneoDTO dto) {
         // 1) validar origen
         String origen = dto.getOrigen() != null ? dto.getOrigen().toUpperCase() : "";
@@ -86,7 +87,7 @@ public class EscaneoController {
     }
 
     @GetMapping("/listas")
-    //@PreAuthorize("hasAnyAuthority('ADMINISTRADOR','PROGRAMADOR')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','PROGRAMADOR','CLIENTE')")
     public List<EscaneoDTO>listar(){
         return service.list().stream().map(a->{
             ModelMapper m=new ModelMapper();

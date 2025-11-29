@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.foodsave.dtos.EscaneoDTO;
 import pe.edu.upc.foodsave.dtos.NotificacionDTO;
@@ -29,7 +30,7 @@ public class NotificacionController {
 
 
     @GetMapping("/listas")
-    //@PreAuthorize("hasAnyAuthority('ADMINISTRADOR','PROGRAMADOR','CLIENTE')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','PROGRAMADOR','CLIENTE')")
     public List<NotificacionDTO>listar(){
         return service.list().stream().map(a->{
             ModelMapper m=new ModelMapper();
@@ -39,7 +40,7 @@ public class NotificacionController {
 
     // ============ NUEVO: AUTOGENERAR/ACTUALIZAR POR INVENTARIO ============
     @PostMapping("/auto/{inventarioId}")
-    //@PreAuthorize("hasAnyAuthority('ADMINISTRADOR','PROGRAMADOR','CLIENTE')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','PROGRAMADOR','CLIENTE')")
     public ResponseEntity<String> autogenerar(@PathVariable int inventarioId) {
         Inventario inv = inventarioRepository.findById(inventarioId).orElse(null);
         if (inv == null || inv.getFechavencimientoInventario() == null) {

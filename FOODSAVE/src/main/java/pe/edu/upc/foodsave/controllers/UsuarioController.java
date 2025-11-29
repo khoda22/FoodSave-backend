@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.foodsave.dtos.*;
@@ -28,7 +29,7 @@ public class UsuarioController {
     private PasswordEncoder passwordEncoder;
   
     @GetMapping("/lista")
-    //@PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    //@PreAuthorize("hasAuthority('ADMIN')")
     public List<UsuarioDTO> Listar() {
         return uS.listar().stream().map( x->{
             ModelMapper m = new ModelMapper();
@@ -60,7 +61,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    //@PreAuthorize("hasAnyAuthority('ADMINISTRADOR','PROGRAMADOR')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','PROGRAMADOR')")
     public UsuarioDTO Listarporid(@PathVariable("id") int id){
         ModelMapper m = new ModelMapper();
         UsuarioDTO dto = m.map(uS.listarporid(id),UsuarioDTO.class);
@@ -68,7 +69,7 @@ public class UsuarioController {
     }
 
     @PutMapping("/actualizar")
-    //@PreAuthorize("hasAnyAuthority('ADMINISTRADOR','PROGRAMADOR')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','PROGRAMADOR')")
     public ResponseEntity<String> modificar(@RequestBody UsuarioDTO dto) {
 
         Usuario existente = uS.listarporid(dto.getIdUsuario());
@@ -100,7 +101,7 @@ public class UsuarioController {
 
 
     @DeleteMapping( "/borrar/{id}")
-    //@PreAuthorize("hasAnyAuthority('ADMINISTRADOR','PROGRAMADOR')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','PROGRAMADOR')")
     public void Eliminar(@PathVariable("id") int id){
         uS.Eliminar(id);
     }

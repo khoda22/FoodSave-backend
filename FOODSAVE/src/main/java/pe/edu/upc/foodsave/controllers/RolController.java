@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.foodsave.dtos.RolDTO;
 import pe.edu.upc.foodsave.entities.Rol;
@@ -18,7 +19,7 @@ public class RolController {
     @Autowired
     private IRolService rS;
     @GetMapping
-    //@PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    //@PreAuthorize("hasAuthority('ADMIN')")
     public List<RolDTO> Listar() {
         return rS.listar().stream().map( x->{
             ModelMapper m = new ModelMapper();
@@ -27,7 +28,7 @@ public class RolController {
     }
 
     @PostMapping
-    //@PreAuthorize("hasAuthority('ADMINISTRADOR')") // <-- usa hasRole si tus authorities tienen prefijo ROLE_
+    //@PreAuthorize("hasAuthority('ADMIN')") // <-- usa hasRole si tus authorities tienen prefijo ROLE_
     public ResponseEntity<String> Registrar(@RequestBody RolDTO dto){
         ModelMapper m = new ModelMapper();
         Rol r = m.map(dto, Rol.class);
@@ -40,7 +41,7 @@ public class RolController {
     }
 
     @GetMapping("/{id}")
-    //@PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    //@PreAuthorize("hasAuthority('ADMIN')")
     public RolDTO Listarporid(@PathVariable("id") int id){
         ModelMapper m = new ModelMapper();
         RolDTO dto = m.map(rS.listarporid(id),RolDTO.class);
@@ -48,7 +49,7 @@ public class RolController {
     }
 
     @PutMapping
-    //@PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    //@PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<String> modificar(@RequestBody RolDTO dto) {
         ModelMapper m = new ModelMapper();
         Rol r = m.map(dto, Rol.class);
@@ -62,7 +63,7 @@ public class RolController {
     }
 
     @DeleteMapping( "/{id}")
-    //@PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    //@PreAuthorize("hasAuthority('ADMIN')")
     public void Eliminar(@PathVariable("id") int id){
         rS.Eliminar(id);
     }

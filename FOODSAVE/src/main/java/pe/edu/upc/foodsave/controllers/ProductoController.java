@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.foodsave.dtos.ProductoDTO;
 import pe.edu.upc.foodsave.entities.Producto;
@@ -19,7 +20,7 @@ public class ProductoController {
     private IProductoService service;
 
     @GetMapping("/listas")
-    //@PreAuthorize("hasAnyAuthority('ADMINISTRADOR','PROGRAMADOR')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','PROGRAMADOR','CLIENTE')")
     public List<ProductoDTO> listar(){
         return service.list().stream().map(a->{
             ModelMapper m=new ModelMapper();
@@ -28,7 +29,7 @@ public class ProductoController {
     }
 
     @PostMapping("/nuevos")
-    //@PreAuthorize("hasAnyAuthority('ADMINISTRADOR','PROGRAMADOR','CLIENTE')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','PROGRAMADOR','CLIENTE')")
     public ResponseEntity<String> insertar(@RequestBody ProductoDTO dto) {
         ModelMapper mapper = new ModelMapper();
         Producto producto = mapper.map(dto, Producto.class);
@@ -37,7 +38,7 @@ public class ProductoController {
     }
 
     @GetMapping("/{id}")
-    //@PreAuthorize("hasAnyAuthority('ADMINISTRADOR','PROGRAMADOR','CLIENTE')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','PROGRAMADOR','CLIENTE')")
     public ResponseEntity<?> listarId(@PathVariable("id") Integer id) {
         Producto prov = service.listId(id);
         if (prov == null) {
@@ -51,7 +52,7 @@ public class ProductoController {
     }
 
     @DeleteMapping("/{id}")
-    //@PreAuthorize("hasAnyAuthority('ADMINISTRADOR','PROGRAMADOR','CLIENTE')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','PROGRAMADOR','CLIENTE')")
     public ResponseEntity<String> eliminar(@PathVariable("id") Integer id) {
         Producto p = service.listId(id);
         if (p == null) {
@@ -62,7 +63,7 @@ public class ProductoController {
         return ResponseEntity.ok("Registro con ID " + id + " eliminado correctamente.");
     }
     @PutMapping("/edit")
-    //@PreAuthorize("hasAnyAuthority('ADMINISTRADOR','PROGRAMADOR','CLIENTE')")
+    //@PreAuthorize("hasAnyAuthority('ADMIN','PROGRAMADOR','CLIENTE')")
     public ResponseEntity<String> modificar(@RequestBody ProductoDTO dto) {
         ModelMapper m = new ModelMapper();
         Producto p = m.map(dto, Producto.class);
