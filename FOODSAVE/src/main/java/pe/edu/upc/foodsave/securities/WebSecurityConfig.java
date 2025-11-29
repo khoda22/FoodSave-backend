@@ -113,7 +113,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/producto/nuevos").permitAll()
                         .requestMatchers("/producto/edit").permitAll()
                         .requestMatchers("/producto/{id}").permitAll()
-                        
+
 
                         .anyRequest().authenticated()
                 )

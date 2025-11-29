@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c09218d6-b10c-4823-9b72-afed219fb239" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/CalificacionRecetaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/CalificacionRecetaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/EscaneoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/EscaneoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/IngredienteRecetaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/IngredienteRecetaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/InventarioControllers.java" beforeDir="false" afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/InventarioControllers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/NotificacionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/NotificacionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/ProductoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/ProductoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/RecetaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/RecetaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/RolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/RolController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/controllers/UsuarioController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/securities/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/FOODSAVE/src/main/java/pe/edu/upc/foodsave/securities/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FOODSAVE/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/FOODSAVE/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +90,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1764218994929</updated>
-      <workItem from="1764218996682" duration="29463000" />
+      <workItem from="1764218996682" duration="33815000" />
     </task>
     <servers />
   </component>
